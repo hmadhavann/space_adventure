@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    By: Hima Madhavan
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Space Adventure</title>
+</head>
+
+<body style="background-color:rgb(185, 98, 95)"></body>
+<link rel="stylesheet" href="choose_your_own.css">
+<body>
+<div style = background-color:blue;>
+    <h1>What a wonderful choice you made, lets hope you don't regret it!</h1>
+</div>
+<h2> To figure out what happens next, please Answer the Following Questions</h2>
+
+<label>Are you enjoying your journey?</label><br />
+    <select id="q1">
+        <option value="5">Yes, this is the best thing ever created</option>
+        <option value="4">Eh, I mean I'm not bored</option>
+        <option value="3">Meh</option>
+        <option value="2">It could be worse</option>
+        <option value="1">This is terrible, and a complete waste of time</option>
+    </select>
+
+    <br /><br /><br />
+<label>Think fast! Which planet would you most like to visit?</label><br />
+<select id="q2">
+    <option value="5">Mercury</option>
+    <option value="4">Venus</option>
+    <option value="3">Earth</option>
+    <option value="2">Mars</option>
+    <option value="1">Jupiter</option>
+</select>
+    <br /><br /><br />
+<label>Quick! Pick another place you would like to visit </label><br />
+    <select id="q3">
+    <option value="5">Saturn</option>
+    <option value="4">Uranus</option>
+    <option value="3">Neptune</option>
+    <option value="2">Pluto</option>
+    <option value="1">The Sun</option>
+</select>
+    <br /><br /><br />
+
+
+<button onclick= "findJourney()"> Let's see what happens</button>
+<p id="total"></p>
+
+<div style = "position: fixed;right: 200px;top:500px">
+    <a href="index.html">Go back Home</a>
+</div>
+
+<br /><br /><br />
+<br /><br /><br />
+<div style = "position: fixed;left: 200px;top:500px">
+    <a href="choose_goOut.html">Go See Beyond</a>
+</div>
+
+
+
+<script>
+    console.log("let us start the journey")
+
+function findJourney() {
+
+    let q1ResponseValue = parseInt(document.getElementById("q1").selectedOptions[0].value);
+        console.log("q1ResponseValue = " + q1ResponseValue);
+
+    let q2ResponseValue = parseInt(document.getElementById("q2").selectedOptions[0].value);
+        console.log("q2ResponseValue = " + q2ResponseValue);
+
+    let q3ResponseValue = parseInt(document.getElementById("q3").selectedOptions[0].value);
+        console.log("q3ResponseValue = " + q3ResponseValue);
+
+    let yourTotal = q1ResponseValue + q2ResponseValue + q3ResponseValue;
+        console.log("your total:  " + yourTotal);
+
+    let yourJourney = ""
+        if ( yourTotal <= 10) {
+            yourJourney = "Wow. you failed the test, please exit left -> and go back to start";
+        }  else {
+            yourJourney = "Congratulations, you survived!!! You may pick where you wanna go, but choose wisely"
+        }  
+        
+                        
+    document.getElementById("total").innerHTML = yourJourney;
+}
+
+</script>
+</body>
+</html>
